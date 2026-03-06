@@ -1,11 +1,1171 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lại Đức</title>
+    <title>HUST - Hanoi University of Science and Technology</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/theme/white.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Nunito:wght@300;400;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --red: #C62828;
+            --red-light: #EF5350;
+            --red-dark: #8E0000;
+            --gold: #F9A825;
+            --gold-light: #FFD54F;
+            --gold-dark: #C17900;
+            --cream: #FFFDE7;
+            --text-dark: #2C2C2C;
+            --text-mid: #555;
+            --text-light: #888;
+        }
+
+        .reveal-viewport {
+            background: var(--cream) !important;
+        }
+
+        .reveal {
+            font-family: 'Nunito', sans-serif;
+        }
+
+        .reveal .slides section {
+            text-align: left;
+            padding: 30px 40px;
+            box-sizing: border-box;
+        }
+
+        .reveal h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8em;
+            font-weight: 900;
+            color: var(--red);
+            margin: 0 0 10px 0;
+            line-height: 1.2;
+        }
+
+        .reveal h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3em;
+            font-weight: 700;
+            color: var(--red);
+            margin: 0 0 12px 0;
+            padding-bottom: 8px;
+            border-bottom: 3px solid;
+            border-image: linear-gradient(90deg, var(--red), var(--gold)) 1;
+        }
+
+        .reveal h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.7em;
+            font-weight: 700;
+            color: var(--gold-dark);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin: 0 0 5px 0;
+        }
+
+        .reveal p {
+            font-size: 0.55em;
+            line-height: 1.6;
+            color: var(--text-dark);
+            margin: 4px 0;
+        }
+
+        .reveal li {
+            font-size: 0.55em;
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+
+        .reveal ul {
+            list-style: none;
+            padding: 0;
+            margin: 6px 0;
+        }
+
+        .reveal ul li {
+            padding-left: 20px;
+            margin-bottom: 6px;
+            position: relative;
+        }
+
+        .reveal ul li::before {
+            content: '\25B8';
+            color: var(--red);
+            font-weight: 700;
+            position: absolute;
+            left: 0;
+        }
+
+        .speaker-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--red), var(--red-dark));
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.42em;
+            font-weight: 600;
+            padding: 3px 14px;
+            border-radius: 15px;
+            margin-bottom: 6px;
+            letter-spacing: 1px;
+        }
+
+        .speaker-tag.gold {
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+        }
+
+        .red-box {
+            background: linear-gradient(135deg, var(--red), var(--red-light));
+            color: #fff;
+            border-radius: 10px;
+            padding: 12px 16px;
+            margin: 8px 0;
+        }
+
+        .red-box p,
+        .red-box li {
+            color: #fff !important;
+        }
+
+        .card {
+            background: #fff;
+            border-left: 4px solid var(--red);
+            border-radius: 0 10px 10px 0;
+            padding: 12px 16px;
+            margin: 8px 0;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        .card.gold {
+            border-left-color: var(--gold);
+        }
+
+        .quote {
+            border-left: 3px solid var(--gold);
+            padding: 8px 14px;
+            margin: 8px 0;
+            background: rgba(249, 168, 37, 0.06);
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+        }
+
+        .kw {
+            color: var(--red);
+            font-weight: 800;
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .red {
+            color: var(--red);
+            font-weight: 700;
+        }
+
+        .gold {
+            color: var(--gold-dark);
+            font-weight: 700;
+        }
+
+        .divider {
+            height: 3px;
+            background: linear-gradient(90deg, var(--red), var(--gold), var(--red-light));
+            margin: 10px 0;
+            border-radius: 2px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .divider::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+            animation: shimmer 2.5s infinite;
+        }
+
+        @keyframes shimmer {
+            from {
+                left: -100%;
+            }
+
+            to {
+                left: 100%;
+            }
+        }
+
+        .grid2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin: 8px 0;
+        }
+
+        .grid3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+            margin: 8px 0;
+        }
+
+        .stat {
+            background: #fff;
+            border-radius: 10px;
+            padding: 12px 8px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            border-top: 3px solid var(--red);
+        }
+
+        .stat.gt {
+            border-top-color: var(--gold);
+        }
+
+        .stat .num {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3em;
+            font-weight: 900;
+            color: var(--red);
+            display: block;
+            line-height: 1.2;
+        }
+
+        .stat.gt .num {
+            color: var(--gold-dark);
+        }
+
+        .stat .lbl {
+            font-size: 0.48em;
+            color: var(--text-mid);
+            font-weight: 600;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin: 6px 0;
+        }
+
+        .tag {
+            background: #fff;
+            border: 2px solid var(--red-light);
+            color: var(--red);
+            padding: 2px 10px;
+            border-radius: 14px;
+            font-size: 0.48em;
+            font-weight: 700;
+        }
+
+        .tag.gt {
+            border-color: var(--gold);
+            color: var(--gold-dark);
+        }
+
+        .tl {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+
+        .tl-dot {
+            width: 12px;
+            height: 12px;
+            min-width: 12px;
+            border-radius: 50%;
+            background: var(--red);
+            margin-top: 3px;
+            box-shadow: 0 0 0 3px rgba(198, 40, 40, 0.15);
+        }
+
+        .tl-dot.g {
+            background: var(--gold);
+            box-shadow: 0 0 0 3px rgba(249, 168, 37, 0.15);
+        }
+
+        .tl-info strong {
+            color: var(--red);
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.58em;
+        }
+
+        .tl-info p {
+            font-size: 0.5em !important;
+            color: var(--text-mid);
+            margin: 2px 0 0 0;
+        }
+
+        .fgrid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin: 8px 0;
+        }
+
+        .fitem {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #fff;
+            padding: 8px 12px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .fitem .fi {
+            font-size: 1em;
+            min-width: 24px;
+            text-align: center;
+        }
+
+        .fitem .ft {
+            font-size: 0.5em;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .badge-row {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: #fff;
+            border: 1px solid #eee;
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 0.45em;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .stripe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--red), var(--gold), var(--red-light), var(--gold-light));
+        }
+
+        .logo-img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.1));
+        }
+
+        .reveal .progress {
+            color: var(--red);
+            height: 4px;
+        }
+
+        .reveal .controls button {
+            color: var(--red);
+        }
+
+        .center-slide {
+            text-align: center !important;
+        }
+
+        .center-slide h1,
+        .center-slide h2,
+        .center-slide p {
+            text-align: center;
+        }
+
+        .center-slide h2 {
+            border: none;
+        }
+
+        .egg-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 10px;
+        }
+
+        .egg-wrap {
+            text-align: center;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .egg-label {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 0.6em;
+            color: var(--red);
+            margin-bottom: 4px;
+        }
+
+        .egg {
+            width: 100px;
+            height: 130px;
+            position: relative;
+            background: linear-gradient(180deg, #FFE0B2 0%, #FFCC80 40%, #FFB74D 100%);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12), inset 0 -8px 15px rgba(0, 0, 0, 0.06), inset 0 4px 10px rgba(255, 255, 255, 0.4);
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .egg::before {
+            content: '?';
+            font-family: 'Playfair Display', serif;
+            font-size: 2em;
+            font-weight: 900;
+            color: rgba(255, 255, 255, 0.7);
+            z-index: 2;
+        }
+
+        .egg:hover {
+            transform: scale(1.08);
+        }
+
+        .egg-img {
+            position: absolute;
+            top: 10%;
+            left: 10%;
+            width: 80%;
+            height: 75%;
+            object-fit: cover;
+            border-radius: 50% 50% 45% 45% / 55% 55% 40% 40%;
+            opacity: 0;
+            z-index: 1;
+            transition: opacity 0.5s ease;
+        }
+
+        .egg-wrap.revealed .egg {
+            animation: eggCrack 0.6s ease-out forwards;
+        }
+
+        .egg-wrap.revealed .egg::before {
+            opacity: 0;
+        }
+
+        .egg-wrap.revealed .egg-img {
+            opacity: 1;
+            transition-delay: 0.4s;
+        }
+
+        .egg-wrap.revealed .egg-label {
+            color: #2E7D32;
+        }
+
+        .egg-wrap.wrong-crack .egg {
+            animation: eggCrackRed 0.6s ease-out forwards;
+        }
+
+        .egg-wrap.wrong-crack .egg::before {
+            opacity: 0;
+        }
+
+        .egg-wrap.wrong-crack .egg-img {
+            opacity: 1;
+            transition-delay: 0.4s;
+        }
+
+        .egg-wrap.wrong-crack .egg-label {
+            color: var(--red);
+        }
+
+        .egg-wrap.disabled {
+            pointer-events: none;
+        }
+
+        .egg-wrap.dim {
+            opacity: 0.4;
+            pointer-events: none;
+        }
+
+        .ans-text {
+            font-size: 0.4em;
+            font-weight: 600;
+            color: var(--text-mid);
+            margin-top: 4px;
+            max-width: 120px;
+            line-height: 1.3;
+        }
+
+        .quiz-q2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.6em;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin: 4px 0 8px 0;
+            text-align: center;
+        }
+
+        .game-msg {
+            text-align: center;
+            margin-top: 12px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 0.7em;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .game-msg.show {
+            opacity: 1;
+        }
+
+        .game-msg.win {
+            color: #2E7D32;
+        }
+
+        .game-msg.lose {
+            color: var(--red);
+        }
+
+        @keyframes eggCrack {
+            0% {
+                transform: scale(1);
+            }
+
+            15% {
+                transform: scale(1.1) rotate(-3deg);
+            }
+
+            30% {
+                transform: scale(1.15) rotate(3deg);
+            }
+
+            45% {
+                transform: scale(1.05) rotate(-2deg);
+                box-shadow: 0 0 30px rgba(46, 125, 50, 0.5);
+            }
+
+            60% {
+                transform: scale(1.2);
+            }
+
+            100% {
+                transform: scale(1.1);
+                background: linear-gradient(180deg, #C8E6C9 0%, #A5D6A7 40%, #81C784 100%);
+                box-shadow: 0 8px 30px rgba(46, 125, 50, 0.3);
+            }
+        }
+
+        @keyframes eggCrackRed {
+            0% {
+                transform: scale(1);
+            }
+
+            15% {
+                transform: scale(1.1) rotate(-3deg);
+            }
+
+            30% {
+                transform: scale(1.15) rotate(3deg);
+            }
+
+            45% {
+                transform: scale(1.05) rotate(-2deg);
+                box-shadow: 0 0 30px rgba(198, 40, 40, 0.4);
+            }
+
+            60% {
+                transform: scale(1.2);
+            }
+
+            100% {
+                transform: scale(1.1);
+                background: linear-gradient(180deg, #FFCDD2 0%, #EF9A9A 40%, #E57373 100%);
+                box-shadow: 0 8px 30px rgba(198, 40, 40, 0.25);
+            }
+        }
+
+        @keyframes eggShake {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            15% {
+                transform: translateX(-6px) rotate(-2deg);
+            }
+
+            30% {
+                transform: translateX(6px) rotate(2deg);
+            }
+
+            45% {
+                transform: translateX(-4px) rotate(-1deg);
+            }
+
+            60% {
+                transform: translateX(4px) rotate(1deg);
+            }
+
+            75% {
+                transform: translateX(-2px);
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <a>Git</a>
+    <div class="reveal">
+        <div class="slides">
+
+            <section class="center-slide" data-background-color="#FFFDE7">
+                <div class="stripe"></div>
+                <img src="logo.png" alt="HUST Logo"
+                    style="width:70px; height:70px; object-fit:contain; filter:drop-shadow(0 2px 6px rgba(0,0,0,0.1)); margin-bottom:4px;">
+                <p
+                    style="font-size:0.4em; color:var(--gold-dark); letter-spacing:3px; font-weight:600; font-family:'Poppins',sans-serif; margin:2px 0;">
+                    UNIT 7 — GLOBAL SUCCESS ENGLISH</p>
+                <h3 style="font-size:0.55em; margin:0;">Education Options for School-Leavers</h3>
+                <div class="divider" style="max-width:120px; margin:6px auto;"></div>
+                <h1 style="text-align:center; font-size:1.4em; margin:4px 0;">Hanoi University of<br>Science &amp;
+                    Technology</h1>
+                <p
+                    style="font-size:0.48em; color:var(--text-mid); letter-spacing:1px; text-align:center; margin:2px 0;">
+                    A Comprehensive Exploration of Vietnam's Leading Technical University</p>
+                <div style="margin-top:10px;">
+                    <div class="badge-row" style="justify-content:center;">
+                        <span class="badge">🎓 Group 6</span>
+                        <span class="badge">⏱️ 15 Minutes</span>
+                        <span class="badge">👥 6 Speakers</span>
+                    </div>
+                </div>
+            </section>
+
+            <section data-background-color="#FFFDE7">
+                <div class="stripe"></div>
+                <h2>📋 Agenda</h2>
+                <div class="grid3">
+                    <div class="stat"><span class="num">01</span><span class="lbl">Introduction</span></div>
+                    <div class="stat gt"><span class="num">02</span><span class="lbl">Institution &amp; Location</span>
+                    </div>
+                    <div class="stat"><span class="num">03</span><span class="lbl">Programmes &amp; Tuition</span></div>
+                    <div class="stat gt"><span class="num">04</span><span class="lbl">Facilities &amp; Life</span></div>
+                    <div class="stat"><span class="num">05</span><span class="lbl">Career Prospects</span></div>
+                    <div class="stat gt"><span class="num">06</span><span class="lbl">Conclusion &amp; Quiz</span></div>
+                </div>
+            </section>
+
+            <section data-background-color="#FFFDE7">
+                <div class="stripe"></div>
+                <span class="speaker-tag">🎤 Person 1 — Introduction</span>
+                <h2>Welcome &amp; Overview</h2>
+                <div class="red-box">
+                    <p>Good morning, teacher and everyone. <strong>Having discussed</strong> various <strong>education
+                            options for school-leavers</strong>, our group decided to focus on a prestigious institution
+                        in Vietnam: <strong>Hanoi University of Science and Technology</strong>, or
+                        <strong>HUST</strong>.
+                    </p>
+                </div>
+                <ul>
+                    <li>We believe that choosing the right path after high school is a <span class="red">life-changing
+                            decision</span>.</li>
+                    <li>Today, we will provide a <span class="gold">comprehensive look</span> at this university.</li>
+                </ul>
+            </section>
+
+            <section data-background-color="#FFFDE7">
+                <div class="stripe"></div>
+                <span class="speaker-tag">🎤 Person 1 — Introduction (cont.)</span>
+                <h2>What We Will Cover</h2>
+                <div class="fgrid">
+                    <div class="fitem"><span class="fi">📍</span><span class="ft"><span class="kw">Location</span> —
+                            Where HUST is situated</span></div>
+                    <div class="fitem"><span class="fi">🎓</span><span class="ft"><span class="kw">Programmes</span> —
+                            Degrees offered</span></div>
+                    <div class="fitem"><span class="fi">🏗️</span><span class="ft"><span class="kw">Facilities</span> —
+                            Modern labs &amp; campus</span></div>
+                    <div class="fitem"><span class="fi">🚀</span><span class="ft"><span class="kw">Careers</span> — Job
+                            opportunities</span></div>
+                </div>
+                <div class="divider"></div>
+                <div class="quote">
+                    <p>"We hope this information will be useful for those who are still wondering which way to go. Are
+                        you ready to explore HUST with us?"</p>
+                </div>
+            </section>
+
+            <section data-background-color="#FFFDE7">
+                <div class="stripe"></div>
+                <span class="speaker-tag gold">🏛️ Person 2 — Institution Type</span>
+                <h2>Type of Institution</h2>
+                <div class="card">
+                    <p>HUST is a leading <span class="kw">public university</span> that focuses on <span
+                            class="kw">higher education</span>, specifically in the fields of
+                        <strong>engineering</strong>, <strong>science</strong>, and <strong>technology</strong>.
+                    </p>
+                </div>
+                <div class="tl">
+                    <div class="tl-dot"></div>
+                    <div class="tl-info"><strong>🗓️ Established</strong>
+                        <p>Founded in <strong>1956</strong> — nearly 70 years of academic excellence</p>
+                    </div>
+                </div>
+                <div class="tl">
+                    <div class="tl-dot g"></div>
+                    <div class="tl-info"><strong>🏷️ Classification</strong>
+                        <p>Public university under the Ministry of Education and Training</p>
+                    </div>
+                </div>
+                <div class="tl">
+                    <div class="tl-dot"></div>
+                    <div class="tl-info"><strong>🔬 Focus Areas</strong>
+                        <p>Engineering, Science, Technology, and Innovation</p>
+                    </div>
+                </div>
+            </section>
+
+            <section data-background-color="#FFFDE7">
+                <div class="stripe"></div>
+                <span class="speaker-tag gold">📍 Person 2 — Location</span>
+                <h2>Campus &amp; Location</h2>
+                <div class="grid3">
+                    <div class="stat"><span class="num" style="font-size:1em;">📍</span><span class="lbl">Hai Ba Trung,
+                            Hanoi</span></div>
+                    <div class="stat gt"><span class="num">26</span><span class="lbl">Hectares</span></div>
+                    <div class="stat"><span class="num">#1</span><span class="lbl">Greenest Campus</span></div>
+                </div>
+
+                <div class="card gold" style="padding:8px 14px; margin:4px 0;">
+                    <p style="font-size:0.5em;"><span class="kw">Having visited</span> the campus, many are impressed by
+                        the iconic <strong>'love-gate'</strong> and <strong>Ta Quang Buu Library</strong> — a peaceful
+                        yet professional atmosphere for students.</p>
+                </div>
+            </section>
+
+            <section data-background-color="#FFFDE7">
+                <div class="stripe"></div>
+                <span class="speaker-tag">📚 Person 3 — Academic Programmes</span>
+                <h2>Degrees &amp; Qualifications</h2>
+                <p>HUST offers a wide range of <span class="kw">Bachelor's degrees</span> and higher <span
+                        class="kw">qualifications</span>:</p>
+                <div class="tags">
+                    <span class="tag">⚙️ Mechanical Eng.</span>
+                    <span class="tag gt">⚡ Electrical Eng.</span>
+                    <span class="tag">💻 Data Science</span>
+                    <span class="tag gt">🤖 AI</span>
+                    <span class="tag">🧪 Chemical Eng.</span>
+                    <span class="tag gt">📡 IT</span>
+                    <span class="tag">🧬 Biotechnology</span>
+                    <span class="tag gt">🔩 Materials Science</span>
+                </div>
+                <div class="divider"></div>
+                <ul>
+                    <li>From <strong>traditional engineering</strong> to <strong>cutting-edge fields</strong> like AI
+                    </li>
+                    <li>The <span class="kw">entry requirements</span> are very competitive — only top students get in
+                    </li>
+                </ul>
+            </section>
+
+            <section data-background-color="#FFFDE7">
+                <div class="stripe"></div>
+                <span class="speaker-tag">💰 Person 3 — Tuition Fees</span>
+                <h2>Tuition Fees &amp; Financial Support</h2>
+                <div class="grid2">
+                    <div class="stat"><span class="num">22–30M</span><span class="lbl">VND / Year — Standard</span>
+                    </div>
+                    <div class="stat gt"><span class="num">40M+</span><span class="lbl">VND / Year — Elite &amp;
+                            International</span></div>
+                </div>
+                <div class="divider"></div>
+                <div class="red-box">
+                    <p>💡 The university offers numerous <strong>scholarships</strong> for students with financial
+                        difficulties or outstanding academic results. This ensures that everyone has a <strong>fair
+                            chance to access quality education</strong>.</p>
+                </div>
+            </section>
+
+            <section data-background-color="#FFFDE7">
+                <div class="stripe"></div>
+                <span class="speaker-tag gold">🔬 Person 4 — Facilities</span>
+                <h2>Facilities &amp; Infrastructure</h2>
+                <p>The university invests heavily in modern facilities for <span class="kw">hands-on experience</span>.
+                </p>
+                <div class="fgrid">
+                    <div class="fitem"><span class="fi">🔬</span><span class="ft"><strong>Modern Laboratories</strong> —
+                            state-of-the-art instruments</span></div>
+                    <div class="fitem"><span class="fi">🛠️</span><span class="ft"><strong>Workshops</strong> —
+                            practical engineering sessions</span></div>
+                    <div class="fitem"><span class="fi">📖</span><span class="ft"><strong>Ta Quang Buu Library</strong>
+                            — thousands of books</span></div>
+                    <div class="fitem"><span class="fi">💡</span><span class="ft"><strong>Smart Classrooms</strong> —
+                            interactive learning</span></div>
+                </div>
+            </section>
+
+            <section data-background-color="#FFFDE7">
+                <div class="stripe"></div>
+                <span class="speaker-tag gold">🎭 Person 4 — Student Life</span>
+                <h2>Student Life &amp; Activities</h2>
+                <div class="card">
+                    <p>Life at HUST is <strong>not just about books</strong>. There are over <span class="kw">60+
+                            student clubs</span> ranging from technical groups to sports and arts.</p>
+                </div>
+                <div class="grid2">
+                    <div class="stat"><span class="num">60+</span><span class="lbl">Student Clubs</span></div>
+                    <div class="stat gt"><span class="num">🤖</span><span class="lbl">Robotics Club</span></div>
+                    <div class="stat"><span class="num">⚽</span><span class="lbl">Sports Teams</span></div>
+                    <div class="stat gt"><span class="num">🎨</span><span class="lbl">Arts &amp; Culture</span></div>
+                </div>
+                <div class="divider"></div>
+                <p><span class="kw">Having participated</span> in extracurricular activities, students develop essential
+                    <span class="red">soft skills</span> like teamwork and communication.
+                </p>
+            </section>
+
+            <section data-background-color="#FFFDE7">
+                <div class="stripe"></div>
+                <span class="speaker-tag">💼 Person 5 — Career Prospects</span>
+                <h2>Job Opportunities</h2>
+                <p>One of the most important factors for <span class="kw">school-leavers</span> is job opportunities
+                    after graduation.</p>
+                <ul>
+                    <li>HUST has strong partnerships with <span class="red">hundreds of corporations</span></li>
+                    <li>Students can start an <span class="kw">apprenticeship</span> or a paid <span
+                            class="kw">internship</span> during their final years</li>
+                </ul>
+                <p style="font-size:0.5em; color:var(--text-mid); font-weight:600; margin-top:8px;">🤝 Key Industry
+                    Partners:</p>
+                <div class="tags">
+                    <span class="tag">Samsung</span>
+                    <span class="tag gt">Viettel</span>
+                    <span class="tag">FPT</span>
+                    <span class="tag gt">VinGroup</span>
+                    <span class="tag">VNPT</span>
+                    <span class="tag gt">Intel</span>
+                    <span class="tag">Bosch</span>
+                    <span class="tag gt">Microsoft</span>
+                </div>
+            </section>
+
+            <section data-background-color="#FFFDE7">
+                <div class="stripe"></div>
+                <span class="speaker-tag">📊 Person 5 — Graduate Success</span>
+                <h2>Graduate Statistics</h2>
+                <div class="grid2">
+                    <div class="stat"><span class="num">90%+</span><span class="lbl">Employed Within 6 Months</span>
+                    </div>
+                    <div class="stat gt"><span class="num">Top 5</span><span class="lbl">University in Vietnam</span>
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <div class="red-box">
+                    <p>🌍 With a globally recognized <strong>qualification</strong>, many alumni also choose to study
+                        abroad for a <strong>Master's degree</strong> or a <strong>Doctorate</strong>. The career path
+                        for HUST students is generally very <strong>bright and stable</strong>.</p>
+                </div>
+            </section>
+
+            <section data-background-color="#FFFDE7">
+                <div class="stripe"></div>
+                <span class="speaker-tag gold">💬 Person 6 — Conclusion</span>
+                <h2>Summary &amp; Reflection</h2>
+                <div class="card">
+                    <p><span class="kw">Having looked</span> at all the aspects — from <strong>academic quality</strong>
+                        to <strong>career support</strong> — we can see why HUST remains a <span class="red">top
+                            choice</span> for students in Vietnam.</p>
+                </div>
+                <ul>
+                    <li>HUST offers a <span class="red">perfect balance</span> between <span class="gold">theory and
+                            practice</span></li>
+                    <li>Choosing an institution is a big step — consider your <span class="kw">passion</span> and the
+                        school's <span class="kw">strengths</span></li>
+                </ul>
+                <div class="quote">
+                    <p>"Make sure you choose an institution that aligns with both your dreams and your abilities."</p>
+                </div>
+            </section>
+
+            <section class="center-slide" data-background-color="#FFFDE7" data-quiz="q1">
+                <div class="stripe"></div>
+                <span class="speaker-tag gold">🎮 Person 6 — Find the Real Bốp!</span>
+                <h2 style="font-size:1.1em; margin-bottom:2px;">Question 1/6 🥚</h2>
+                <p class="quiz-q2">When was HUST established?</p>
+                <div class="egg-grid" data-answer="B">
+                    <div class="egg-wrap" data-val="A">
+                        <div class="egg-label">A</div>
+                        <div class="egg"><img class="egg-img" alt="Bop"></div>
+                        <div class="ans-text">1945</div>
+                    </div>
+                    <div class="egg-wrap" data-val="B">
+                        <div class="egg-label">B</div>
+                        <div class="egg"><img class="egg-img" alt="Bop"></div>
+                        <div class="ans-text">1956</div>
+                    </div>
+                    <div class="egg-wrap" data-val="C">
+                        <div class="egg-label">C</div>
+                        <div class="egg"><img class="egg-img" alt="Bop"></div>
+                        <div class="ans-text">1962</div>
+                    </div>
+                    <div class="egg-wrap" data-val="D">
+                        <div class="egg-label">D</div>
+                        <div class="egg"><img class="egg-img" alt="Bop"></div>
+                        <div class="ans-text">1975</div>
+                    </div>
+                </div>
+                <div class="game-msg"></div>
+            </section>
+
+            <section class="center-slide" data-background-color="#FFFDE7" data-quiz="q2">
+                <div class="stripe"></div>
+                <span class="speaker-tag gold">🎮 Person 6 — Find the Real Bốp!</span>
+                <h2 style="font-size:1.1em; margin-bottom:2px;">Question 2/6 🥚</h2>
+                <p class="quiz-q2">Where is HUST located?</p>
+                <div class="egg-grid" data-answer="C">
+                    <div class="egg-wrap" data-val="A">
+                        <div class="egg-label">A</div>
+                        <div class="egg"><img class="egg-img" alt="Bop"></div>
+                        <div class="ans-text">Ho Chi Minh City</div>
+                    </div>
+                    <div class="egg-wrap" data-val="B">
+                        <div class="egg-label">B</div>
+                        <div class="egg"><img class="egg-img" alt="Bop"></div>
+                        <div class="ans-text">Da Nang</div>
+                    </div>
+                    <div class="egg-wrap" data-val="C">
+                        <div class="egg-label">C</div>
+                        <div class="egg"><img class="egg-img" alt="Bop"></div>
+                        <div class="ans-text">Hai Ba Trung, Hanoi</div>
+                    </div>
+                    <div class="egg-wrap" data-val="D">
+                        <div class="egg-label">D</div>
+                        <div class="egg"><img class="egg-img" alt="Bop"></div>
+                        <div class="ans-text">Dong Da, Hanoi</div>
+                    </div>
+                </div>
+                <div class="game-msg"></div>
+            </section>
+
+            <section class="center-slide" data-background-color="#FFFDE7" data-quiz="q3">
+                <div class="stripe"></div>
+                <span class="speaker-tag gold">🎮 Person 6 — Find the Real Bốp!</span>
+                <h2 style="font-size:1.1em; margin-bottom:2px;">Question 3/6 🥚</h2>
+                <p class="quiz-q2">How much is the standard tuition fee per year?</p>
+                <div class="egg-grid" data-answer="A">
+                    <div class="egg-wrap" data-val="A">
+                        <div class="egg-label">A</div>
+                        <div class="egg"><img class="egg-img" alt="Bop"></div>
+                        <div class="ans-text">22–30M VND</div>
+                    </div>
+                    <div class="egg-wrap" data-val="B">
+                        <div class="egg-label">B</div>
+                        <div class="egg"><img class="egg-img" alt="Bop"></div>
+                        <div class="ans-text">10–15M VND</div>
+                    </div>
+                    <div class="egg-wrap" data-val="C">
+                        <div class="egg-label">C</div>
+                        <div class="egg"><img class="egg-img" alt="Bop"></div>
+                        <div class="ans-text">50–60M VND</div>
+                    </div>
+                    <div class="egg-wrap" data-val="D">
+                        <div class="egg-label">D</div>
+                        <div class="egg"><img class="egg-img" alt="Bop"></div>
+                        <div class="ans-text">5–8M VND</div>
+                    </div>
+                </div>
+                <div class="game-msg"></div>
+            </section>
+
+            <section class="center-slide" data-background-color="#FFFDE7" data-quiz="q4">
+                <div class="stripe"></div>
+                <span class="speaker-tag gold">🎮 Person 6 — Find the Real Bốp!</span>
+                <h2 style="font-size:1.1em; margin-bottom:2px;">Question 4/6 🥚</h2>
+                <p class="quiz-q2">How many student clubs does HUST have?</p>
+                <div class="egg-grid" data-answer="D">
+                    <div class="egg-wrap" data-val="A">
+                        <div class="egg-label">A</div>
+                        <div class="egg"><img class="egg-img" alt="Bop"></div>
+                        <div class="ans-text">10+</div>
+                    </div>
+                    <div class="egg-wrap" data-val="B">
+                        <div class="egg-label">B</div>
+                        <div class="egg"><img class="egg-img" alt="Bop"></div>
+                        <div class="ans-text">25+</div>
+                    </div>
+                    <div class="egg-wrap" data-val="C">
+                        <div class="egg-label">C</div>
+                        <div class="egg"><img class="egg-img" alt="Bop"></div>
+                        <div class="ans-text">40+</div>
+                    </div>
+                    <div class="egg-wrap" data-val="D">
+                        <div class="egg-label">D</div>
+                        <div class="egg"><img class="egg-img" alt="Bop"></div>
+                        <div class="ans-text">60+</div>
+                    </div>
+                </div>
+                <div class="game-msg"></div>
+            </section>
+
+            <section class="center-slide" data-background-color="#FFFDE7" data-quiz="q5">
+                <div class="stripe"></div>
+                <span class="speaker-tag gold">🎮 Person 6 — Find the Real Bốp!</span>
+                <h2 style="font-size:1.1em; margin-bottom:2px;">Question 5/6 🥚</h2>
+                <p class="quiz-q2">What % of graduates find a job within 6 months?</p>
+                <div class="egg-grid" data-answer="C">
+                    <div class="egg-wrap" data-val="A">
+                        <div class="egg-label">A</div>
+                        <div class="egg"><img class="egg-img" alt="Bop"></div>
+                        <div class="ans-text">50%</div>
+                    </div>
+                    <div class="egg-wrap" data-val="B">
+                        <div class="egg-label">B</div>
+                        <div class="egg"><img class="egg-img" alt="Bop"></div>
+                        <div class="ans-text">70%</div>
+                    </div>
+                    <div class="egg-wrap" data-val="C">
+                        <div class="egg-label">C</div>
+                        <div class="egg"><img class="egg-img" alt="Bop"></div>
+                        <div class="ans-text">90%+</div>
+                    </div>
+                    <div class="egg-wrap" data-val="D">
+                        <div class="egg-label">D</div>
+                        <div class="egg"><img class="egg-img" alt="Bop"></div>
+                        <div class="ans-text">100%</div>
+                    </div>
+                </div>
+                <div class="game-msg"></div>
+            </section>
+
+            <section class="center-slide" data-background-color="#FFFDE7" data-quiz="q6">
+                <div class="stripe"></div>
+                <span class="speaker-tag gold">🎮 Person 6 — Find the Real Bốp!</span>
+                <h2 style="font-size:1.1em; margin-bottom:2px;">Question 6/6 🥚</h2>
+                <p class="quiz-q2">Which is NOT a programme at HUST?</p>
+                <div class="egg-grid" data-answer="B">
+                    <div class="egg-wrap" data-val="A">
+                        <div class="egg-label">A</div>
+                        <div class="egg"><img class="egg-img" alt="Bop"></div>
+                        <div class="ans-text">AI</div>
+                    </div>
+                    <div class="egg-wrap" data-val="B">
+                        <div class="egg-label">B</div>
+                        <div class="egg"><img class="egg-img" alt="Bop"></div>
+                        <div class="ans-text">Int'l Business</div>
+                    </div>
+                    <div class="egg-wrap" data-val="C">
+                        <div class="egg-label">C</div>
+                        <div class="egg"><img class="egg-img" alt="Bop"></div>
+                        <div class="ans-text">Data Science</div>
+                    </div>
+                    <div class="egg-wrap" data-val="D">
+                        <div class="egg-label">D</div>
+                        <div class="egg"><img class="egg-img" alt="Bop"></div>
+                        <div class="ans-text">Mech. Eng.</div>
+                    </div>
+                </div>
+                <div class="game-msg"></div>
+            </section>
+
+            <section class="center-slide" data-background-color="#FFFDE7">
+                <div class="stripe"></div>
+                <p style="font-size:2em; margin:0;">🎓</p>
+                <h2 style="font-size:1.8em;">Thank You!</h2>
+                <div class="divider" style="max-width:180px; margin:8px auto;"></div>
+                <p style="font-size:0.7em; color:var(--red); font-weight:700; text-align:center;">Thank you very much
+                    for your attention!</p>
+                <div style="margin-top:15px;">
+                    <div class="badge-row" style="justify-content:center;">
+                        <span class="badge">🎓 Group 6</span>
+                        <span class="badge">📖 Global Success</span>
+                        <span class="badge">📝 Unit 7</span>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.min.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            transition: 'slide',
+            transitionSpeed: 'default',
+            backgroundTransition: 'convex',
+            controls: true,
+            progress: true,
+            center: true,
+            width: 960,
+            height: 540,
+            margin: 0.1
+        });
+        document.querySelector('.reveal').addEventListener('click', function (e) {
+            if (e.target.closest('.controls')) return;
+            if (e.target.closest('.egg-wrap')) return;
+            Reveal.next();
+        });
+
+        var correctImg = '2.png';
+        var fakeImgs = ['1.png', '3.png', '4.png'];
+
+        function setupQuizSlide(slide) {
+            var grid = slide.querySelector('.egg-grid');
+            var msg = slide.querySelector('.game-msg');
+            if (!grid || grid.dataset.ready) return;
+            grid.dataset.ready = '1';
+            var answer = grid.dataset.answer;
+            msg.className = 'game-msg';
+            msg.textContent = '';
+            var answered = false;
+
+            grid.querySelectorAll('.egg-wrap').forEach(function (wrap) {
+                wrap.addEventListener('click', function () {
+                    if (answered) return;
+                    answered = true;
+                    var val = this.dataset.val;
+                    var isCorrect = val === answer;
+
+                    if (isCorrect) {
+                        this.querySelector('.egg-img').src = correctImg;
+                        this.classList.add('revealed');
+                        msg.textContent = '🎉 Correct! You found the real Bốp!';
+                        msg.className = 'game-msg show win';
+                    } else {
+                        var fake = fakeImgs[Math.floor(Math.random() * fakeImgs.length)];
+                        this.querySelector('.egg-img').src = fake;
+                        this.classList.add('wrong-crack');
+                        msg.textContent = '❌ Wrong! That\'s a fake Bốp!';
+                        msg.className = 'game-msg show lose';
+                        grid.querySelectorAll('.egg-wrap').forEach(function (w) {
+                            if (w.dataset.val === answer) {
+                                setTimeout(function () {
+                                    w.querySelector('.egg-img').src = correctImg;
+                                    w.classList.add('revealed');
+                                }, 800);
+                            }
+                        });
+                    }
+                    grid.querySelectorAll('.egg-wrap').forEach(function (w) {
+                        if (!w.classList.contains('revealed') && !w.classList.contains('wrong-crack')) {
+                            w.classList.add('dim');
+                        }
+                    });
+                });
+            });
+        }
+
+        document.querySelectorAll('[data-quiz]').forEach(function (slide) {
+            setupQuizSlide(slide);
+        });
+
+        Reveal.on('slidechanged', function (event) {
+            if (event.currentSlide.dataset.quiz) {
+                setupQuizSlide(event.currentSlide);
+            }
+        });
+    </script>
 </body>
+
 </html>
