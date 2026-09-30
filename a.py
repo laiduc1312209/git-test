@@ -8,27 +8,13 @@ GEMINI_API_KEY = "AIzaSyxxxxxxxxx"
 OPENAI_API_KEY = "sk-xxxxxxxxx"
 
 PROMPT = """
-Bạn là chuyên gia giải HSG Tin học THPT.
+Chỉ viết CODE PYTHON để giải bài sau.
+Không giải thích.
+Không markdown.
+Không ```.
+Tối ưu thời gian và bộ nhớ.
+Không cần đọc từ file INP OUT như đề bài, chỉ cần nhập từ bàn phím
 
-Hãy giải bài toán theo cấu trúc:
-
-1. Phân tích đề.
-2. Xác định dạng bài và thuật toán.
-3. Giải thích ý tưởng thật dễ hiểu.
-4. Nêu công thức nếu có.
-5. Phân tích độ phức tạp thời gian và bộ nhớ.
-6. Viết code Python tối ưu.
-7. Code không có chú thích.
-8. Kiểm tra các trường hợp đặc biệt.
-9. Đưa ví dụ minh họa.
-
-Ưu tiên các kỹ thuật HSG Tin:
-mảng, xâu, prefix sum, two pointers, binary search,
-greedy, quy hoạch động, đệ quy, DFS, BFS, đồ thị,
-số học và các kỹ thuật tối ưu thuật toán.
-
-Nếu đề yêu cầu INP/OUT thì dùng stdin/stdout.
-Không dùng thư viện ngoài nếu không cần thiết.
 """
 
 def token_harbor(de_bai):
