@@ -4,7 +4,7 @@ from google import genai
 
 TOKEN_HARBOR_API_KEY = "thk_live_ZDDtQNuyYlTEyvQLlNzqlHr6Gq5cAYjEonQS8ZWybRyQFOYkIH7sfER9s5HnfMDB"
 OPENROUTER_API_KEY = "sk-or-v1-xxxxxxxxx"
-GEMINI_API_KEY = "AIzaSyxxxxxxxxx"
+GEMINI_API_KEY = "AIzaSyCO-uN-sNOrdPd0BT7ty1Tr5eGRhBIOPVE"
 OPENAI_API_KEY = "sk-xxxxxxxxx"
 
 PROMPT = """
