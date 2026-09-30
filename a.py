@@ -79,14 +79,10 @@ def chatgpt(de_bai):
 
 
 def main():
-    print("=" * 50)
-    print("             HSG TIN AI")
-    print("=" * 50)
-    print("[1] Token Harbor")
-    print("[2] OpenRouter")
-    print("[3] Gemini")
-    print("[4] ChatGPT")
-    print("=" * 50)
+    print("TH")
+    print("OP")
+    print("G")
+    print("C")
 
     lua_chon = input("Chọn AI: ")
 
@@ -94,8 +90,8 @@ def main():
         print("Lựa chọn không hợp lệ.")
         return
 
-    print("\nNhập đề bài.")
-    print("Gõ END để kết thúc:\n")
+    print("\nNhập")
+    print("END:\n")
 
     de_bai = []
 
